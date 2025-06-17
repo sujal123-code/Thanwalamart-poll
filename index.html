@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ThanwalaMart Poll</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      font-family: sans-serif;
+      background: #f2f2f2;
+      padding: 20px;
+      text-align: center;
+    }
+    h1 {
+      color: #333;
+    }
+    .option {
+      margin: 15px 0;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 18px;
+      border: none;
+      border-radius: 8px;
+      background: #4CAF50;
+      color: white;
+      margin-top: 20px;
+      cursor: pointer;
+    }
+    input[type="radio"] {
+      margin-right: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>ThanwalaMart – Aapka Feedback 🙏</h1>
+  <p>Aap kya chahte ho?</p>
+
+  <div class="option">
+    <label>
+      <input type="radio" name="poll" value="Chalu rakho">
+      🟢 ThanwalaMart chalu rahe
+    </label>
+  </div>
+
+  <div class="option">
+    <label>
+      <input type="radio" name="poll" value="Band kar do">
+      🔴 ThanwalaMart band ho jaye
+    </label>
+  </div>
+
+  <button onclick="submitVote()">✅ Vote Karein</button>
+
+  <script>
+    function submitVote() {
+      const options = document.getElementsByName('poll');
+      let selected = '';
+      for (let i = 0; i < options.length; i++) {
+        if (options[i].checked) {
+          selected = options[i].value;
+        }
+      }
+
+      if (selected === '') {
+        alert('Kripya ek option chunein!');
+        return;
+      }
+
+      // WhatsApp link (replace with your number)
+      const phone = '918529526837'; // <-- yahan apna number daalna
+      const msg = `Mera vote: ${selected} – ThanwalaMart ke liye.`;
+      const url = `https://wa.me/${phone}?text=${encodeURIComponent(msg)}`;
+      window.open(url, '_blank');
+    }
+  </script>
+
+</body>
+</html>
